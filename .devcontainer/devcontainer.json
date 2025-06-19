@@ -1,0 +1,39 @@
+{
+  "name": "mc-playout-devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu24.04",
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:latest": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "spgoding.datapack-language-server"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  },
+  "mounts": [
+    // bash 履歴を永続化するためのボリューム
+    // https://code.visualstudio.com/remote/advancedcontainers/persist-bash-history
+    {
+      "type": "volume",
+      "source": "mc-playout-bash-history",
+      "target": "/home/vscode/hist"
+    },
+    // claude 使用履歴を同期するためのバインド
+    {
+      "type": "bind",
+      "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.claude",
+      "target": "/home/vscode/.claude"
+    }
+  ],
+  "containerEnv": {
+    "HISTFILE": "/home/vscode/hist/.bash_history",
+    "PROMPT_COMMAND": "history -a; history -r"
+  },
+  "postCreateCommand": "sudo chown -R $USER:$USER /home/vscode/hist /home/vscode/.claude"
+}
