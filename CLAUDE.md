@@ -21,10 +21,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 data/
 └── [namespace]/           # ゲーム固有の名前空間
-    ├── functions/        # コマンド関数
-    ├── advancements/     # プレイヤーの進行状況追跡
-    ├── predicates/       # 条件判定
-    └── loot_tables/      # カード配布メカニクス
+    ├── function/        # コマンド関数
+    ├── advancement/     # プレイヤーの進行状況追跡
+    ├── predicate/       # 条件判定
+    └── loot_table/      # カード配布メカニクス
 ```
 
 ## 開発コマンド
@@ -73,7 +73,7 @@ data/
 ### `.claude/context.md`
 
 - ゲームの背景、コンセプト、ゲームプレイの目的
-- 使用するMinecraftのバージョンと機能
+- 使用する Minecraft のバージョンと機能
 - ゲームデザインの制約（プレイヤー数、必要アイテムなど）
 
 ### `.claude/project-knowledge.md`
