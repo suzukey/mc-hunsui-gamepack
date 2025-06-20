@@ -1,0 +1,38 @@
+# ゲーム初期化スクリプト
+
+# -- ゲーム設定保持 ----------------------
+
+# ゲーム設定用スコアボードの作成
+scoreboard objectives add sui.configs dummy "ゲーム基本設定"
+scoreboard objectives add sui.participants dummy "参加者リスト"
+
+# -- 定数管理 ----------------------
+
+# 定数用スコアボードの作成
+scoreboard objectives remove sui.constants
+scoreboard objectives add sui.constants dummy "ゲーム定数"
+
+# ゲームタイプ定数
+scoreboard players set GAME_TYPE_NONE sui.constants 0
+scoreboard players set GAME_TYPE_LIARS sui.constants 1
+scoreboard players set GAME_TYPE_PLAYOUT sui.constants 2
+
+# Liarsゲームの設定
+scoreboard players set LIARS_MIN_PLAYERS sui.constants 2
+scoreboard players set LIARS_MAX_PLAYERS sui.constants 4
+
+# PlayOutゲームの設定
+scoreboard players set PLAYOUT_MIN_PLAYERS sui.constants 2
+scoreboard players set PLAYOUT_MAX_PLAYERS sui.constants 8
+
+# -- ゲームごとの初期化 ----------------------
+
+function sui:games/liars/loader/init
+function sui:games/playout/loader/init
+
+# -- Trigger システムの初期化 ----------------------
+
+function sui:triggers/init
+
+# -- 完了メッセージ ----------------------
+tellraw @a [{"text":"[SUI_GAMEPACK] ","color":"gold"},{"text":"ロードされました","color":"green"}]
