@@ -1,8 +1,29 @@
-# MC-PlayOut
+# MC-Hunsui GamePack
 
-オリジナルトランプゲームのマインクラフトデータパック
+ゲーム詰め合わせマインクラフトデータパック
 
 minecraft version: 1.21.6
+
+## 内容
+
+- Liars: Liar's Bar のマインクラフト版
+- PlayOut: オリジナルルールのトランプゲーム
+
+## コマンド
+
+### 導入
+
+```minecraft
+/reload
+
+/datapack enable file/mc-hunsui-gamepack "/
+```
+
+## ゲーム
+
+```minecraft
+/function sui:select/
+```
 
 ## 参考・Tools
 

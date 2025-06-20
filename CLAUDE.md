@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 開発環境
 
-- **pack_format**: 80 (最新の Minecraft バージョン用)
+- **pack_format**: 80 (Minecraft 1.21.6 バージョン用)
 - **Datapack Helper Plus**: 拡張機能、データパックの構文ハイライトと検証を提供
 - **Misode's Data Pack Generators** (https://misode.github.io): predicate や advancement の生成に必須
 
@@ -20,28 +20,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```
 data/
-└── [namespace]/           # ゲーム固有の名前空間
-    ├── function/        # コマンド関数
-    ├── advancement/     # プレイヤーの進行状況追跡
-    ├── predicate/       # 条件判定
-    └── loot_table/      # カード配布メカニクス
-```
-
-## 開発コマンド
-
-### Minecraft 内でのテスト
-
-```
-/reload                                    # データパックをリロード
-/datapack list                            # データパック一覧
-/datapack enable "file/playout"           # データパックを有効化
-/function [namespace]:[function_path]      # 関数を実行
-```
-
-### スコアボード初期化（カードゲーム用）
-
-```
-/scoreboard objectives add [objective] dummy
+└── sui/                          # ゲーム固有の名前空間
+    ├── function/                 # コマンド関数
+    |    ├── <command>.mcfunction # 呼び出される関数たちはトップレベルに配置
+    |    └── zzz_games/           # ゲーム関連 内部処理
+    |         ├── _common/        # 共通処理
+    |         ├── liars/          # Liars ゲームの実装
+    |         └── playout/        # PlayOut ゲームの実装
+    ├── advancement/              # プレイヤーの進行状況追跡
+    ├── predicate/                # 条件判定
+    └── loot_table/               # カード配布メカニクス
 ```
 
 ## アーキテクチャ指針
@@ -52,13 +40,6 @@ data/
 2. **エンティティタグ**: プレイヤーの役割やカードの状態を追跡
 3. **predicate**: 複雑な条件判定（手札の確認、ゲーム状態など）
 4. **カスタムアイテム**: カードをアイテムとして実装する場合は CustomModelData を使用
-
-### 推奨される関数構造
-
-- `init.mcfunction`: スコアボードとゲーム初期設定
-- `cards/`: カードの生成、配布、効果処理
-- `players/`: プレイヤー管理（参加、退出、ターン管理）
-- `game/`: ゲームロジック（開始、終了、勝利判定）
 
 ## 重要な注意事項
 
