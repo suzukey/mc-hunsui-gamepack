@@ -1,5 +1,5 @@
 {
   "values": [
-    "sui:games/_common/loader/init"
+    "sui:game/_common/loader/init"
   ]
 }

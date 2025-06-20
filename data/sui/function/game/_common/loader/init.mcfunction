@@ -27,12 +27,12 @@ scoreboard players set PLAYOUT_MAX_PLAYERS sui.constants 8
 
 # -- ゲームごとの初期化 ----------------------
 
-function sui:games/liars/loader/init
-function sui:games/playout/loader/init
+function sui:game/liars/loader/init
+function sui:game/playout/loader/init
 
 # -- Trigger システムの初期化 ----------------------
 
-function sui:triggers/init
+function sui:trigger/init
 
 # -- 完了メッセージ ----------------------
 tellraw @a [{"text":"[SUI_GAMEPACK] ","color":"gold"},{"text":"ロードされました","color":"green"}]

@@ -2,9 +2,9 @@
 
 # -- ゲームごとのtick処理 ----------------------
 
-function sui:games/liars/loader/tick
-function sui:games/playout/loader/tick
+function sui:game/liars/loader/tick
+function sui:game/playout/loader/tick
 
 # -- Trigger システムのtick処理 ----------------------
 
-function sui:triggers/tick
+function sui:trigger/tick
