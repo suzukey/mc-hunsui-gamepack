@@ -1,8 +1,8 @@
 # 共通離脱処理
 
-# プレイヤーが参加していないかチェック
-execute if score @s sui.participants matches 0 run tellraw @s ["",{"text":"[システム] ","color":"gray"},{"text":"ゲームに参加していません","color":"red"}]
-execute if score @s sui.participants matches 0 run return 0
+# プレイヤーが参加していないかチェック（スコアがない場合も含む）
+execute unless score @s sui.participants matches 1 run tellraw @s ["",{"text":"[SUI_GAMEPACK] ","color":"gray"},{"text":"ゲームに参加していません","color":"red"}]
+execute unless score @s sui.participants matches 1 run return 0
 
 # 離脱処理
 scoreboard players reset @s sui.participants
