@@ -201,7 +201,7 @@ return run function namespace:calculate_score
 
 ```json
 {
-  "values": ["sui:zzz_games/_common/loader/init"]
+  "values": ["sui:game/_common/loader/init"]
 }
 ```
 
@@ -212,7 +212,7 @@ return run function namespace:calculate_score
 
 ```json
 {
-  "values": ["sui:zzz_games/_common/loader/tick"]
+  "values": ["sui:game/_common/loader/tick"]
 }
 ```
 
