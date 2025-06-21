@@ -4,9 +4,9 @@
 
 # ゲーム設定用スコアボードの作成
 scoreboard objectives add sui.configs dummy "ゲーム基本設定"
-scoreboard players operation GAME_TYPE sui.configs = GAME_TYPE_NONE sui.constants
-scoreboard players set MAX_PLAYERS sui.configs 0
-scoreboard players set MIN_PLAYERS sui.configs 0
+execute unless score GAME_TYPE sui.configs = GAME_TYPE sui.configs run scoreboard players operation GAME_TYPE sui.configs = GAME_TYPE_NONE sui.constants
+execute unless score MAX_PLAYERS sui.configs = MAX_PLAYERS sui.configs run scoreboard players set MAX_PLAYERS sui.configs 0
+execute unless score MIN_PLAYERS sui.configs = MIN_PLAYERS sui.configs run scoreboard players set MIN_PLAYERS sui.configs 0
 
 # -- 定数管理 ----------------------
 
