@@ -22,7 +22,7 @@ scoreboard players add #current_count sui.participants 1
 tellraw @a ["",{"selector":"@s","color":"green"},{"text":" がゲームに参加しました","color":"gray"}]
 
 # 参加者リストのタイトルを更新
-function sui:game/_common/player/update_title
+function sui:game/_common/matching/update_score_title
 
 # 成功を返す
 return 1

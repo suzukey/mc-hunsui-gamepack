@@ -15,7 +15,7 @@ scoreboard players operation MAX_PLAYERS sui.configs = PLAYOUT_MAX_PLAYERS sui.c
 scoreboard players operation MIN_PLAYERS sui.configs = PLAYOUT_MIN_PLAYERS sui.constants
 
 # 参加者スコアボードのタイトルを更新
-function sui:game/_common/player/update_title
+function sui:game/_common/matching/update_score_title
 
 # メッセージ (選択通知 + 参加案内)
 tellraw @a [{"text":"[SUI_GAMEPACK] ","color":"gold"},{"text":"PlayOut","color":"light_purple"},{"text":" が選択されました ","color":"white"}]

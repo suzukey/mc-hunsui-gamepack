@@ -14,7 +14,6 @@ execute store result score #current_count sui.participants if entity @a[scores={
 tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" がゲームから離脱しました","color":"gray"}]
 
 # 参加者リストのタイトルを更新
-function sui:game/_common/player/update_title
-
+function sui:game/_common/matching/update_score_title
 # 成功を返す
 return 1

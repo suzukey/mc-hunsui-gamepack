@@ -10,7 +10,7 @@ scoreboard players operation MAX_PLAYERS sui.configs = LIARS_MAX_PLAYERS sui.con
 scoreboard players operation MIN_PLAYERS sui.configs = LIARS_MIN_PLAYERS sui.constants
 
 # 共通準備処理
-function sui:game/_common/player/update_title
+function sui:game/_common/matching/update_score_title
 
 # メッセージ (選択通知 + 参加案内)
 tellraw @a [{"text":"[SUI_GAMEPACK] ","color":"gold"},{"text":"Liars","color":"aqua"},{"text":" が選択されました ","color":"white"}]

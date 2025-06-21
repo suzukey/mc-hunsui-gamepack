@@ -4,7 +4,9 @@
 
 # ゲーム設定用スコアボードの作成
 scoreboard objectives add sui.configs dummy "ゲーム基本設定"
-scoreboard objectives add sui.participants dummy "参加者リスト"
+scoreboard players operation GAME_TYPE sui.configs = GAME_TYPE_NONE sui.constants
+scoreboard players set MAX_PLAYERS sui.configs 0
+scoreboard players set MIN_PLAYERS sui.configs 0
 
 # -- 定数管理 ----------------------
 
@@ -24,6 +26,14 @@ scoreboard players set LIARS_MAX_PLAYERS sui.constants 4
 # PlayOutゲームの設定
 scoreboard players set PLAYOUT_MIN_PLAYERS sui.constants 2
 scoreboard players set PLAYOUT_MAX_PLAYERS sui.constants 8
+
+# -- 参加者管理 ----------------------
+
+scoreboard objectives add sui.participants dummy "参加者"
+scoreboard objectives setdisplay sidebar sui.participants
+
+scoreboard objectives add sui.score dummy "ゲームスコア"
+scoreboard objectives setdisplay list sui.score
 
 # -- ゲームごとの初期化 ----------------------
 
