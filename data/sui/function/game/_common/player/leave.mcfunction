@@ -10,12 +10,11 @@ scoreboard players reset @s sui.participants
 # 人数を更新
 execute store result score #current_count sui.participants if entity @a[scores={sui.participants=1}]
 
-# 開始要件を満たすかチェック
-execute store result score #can_start sui.participants if score #current_count sui.participants >= MIN_PLAYERS sui.configs
+# 離脱メッセージ
+tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" がゲームから離脱しました","color":"gray"}]
 
-# 離脱メッセージ（開始要件を満たす場合は緑、満たさない場合は黄色）
-execute if score #can_start sui.participants matches 1 run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" がゲームから離脱しました","color":"gray"},{"text":"（","color":"green"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"green"},{"text":"/","color":"green"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"green"},{"text":"人）","color":"green"}]
-execute if score #can_start sui.participants matches 0 run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" がゲームから離脱しました","color":"gray"},{"text":"（","color":"yellow"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"yellow"},{"text":"/","color":"yellow"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"yellow"},{"text":"人）","color":"yellow"}]
+# 参加者リストのタイトルを更新
+function sui:game/_common/player/update_title
 
 # 成功を返す
 return 1

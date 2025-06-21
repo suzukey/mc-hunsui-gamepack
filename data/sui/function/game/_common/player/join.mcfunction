@@ -9,7 +9,7 @@ execute if score @s sui.participants matches 1 run return 0
 execute store result score #current_count sui.participants if entity @a[scores={sui.participants=1}]
 
 # 最大人数チェック
-execute if score #current_count sui.participants >= MAX_PLAYERS sui.configs run tellraw @s ["",{"text":"[SUI_GAMEPACK] ","color":"gray"},{"text":"ゲームは満員です（最大","color":"red"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"red"},{"text":"人）","color":"red"}]
+execute if score #current_count sui.participants >= MAX_PLAYERS sui.configs run tellraw @s ["",{"text":"[SUI_GAMEPACK] ","color":"gray"},{"text":"ゲームは満員です","color":"red"}]
 execute if score #current_count sui.participants >= MAX_PLAYERS sui.configs run return 0
 
 # 参加処理
@@ -18,12 +18,11 @@ scoreboard players set @s sui.participants 1
 # 人数を更新
 scoreboard players add #current_count sui.participants 1
 
-# 開始要件を満たすかチェック
-execute store result score #can_start sui.participants if score #current_count sui.participants >= MIN_PLAYERS sui.configs
+# 参加メッセージ
+tellraw @a ["",{"selector":"@s","color":"green"},{"text":" がゲームに参加しました","color":"gray"}]
 
-# 参加メッセージ（開始要件を満たす場合は緑、満たさない場合は黄色）
-execute if score #can_start sui.participants matches 1 run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" がゲームに参加しました","color":"gray"},{"text":"（","color":"green"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"green"},{"text":"/","color":"green"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"green"},{"text":"人）","color":"green"}]
-execute if score #can_start sui.participants matches 0 run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" がゲームに参加しました","color":"gray"},{"text":"（","color":"yellow"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"yellow"},{"text":"/","color":"yellow"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"yellow"},{"text":"人）","color":"yellow"}]
+# 参加者リストのタイトルを更新
+function sui:game/_common/player/update_title
 
 # 成功を返す
 return 1
