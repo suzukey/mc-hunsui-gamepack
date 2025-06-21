@@ -9,11 +9,11 @@ scoreboard players reset @a[scores={sui.select.playout=1..}] sui.select.playout
 scoreboard players enable @a sui.select.playout
 
 # ゲーム参加
-execute as @a[scores={sui.join=1..}] run function sui:game/_common/player/join
+execute as @a[scores={sui.join=1..}] run function sui:game/_common/matching/join
 scoreboard players reset @a[scores={sui.join=1..}] sui.join
 scoreboard players enable @a sui.join
 
 # ゲーム離脱
-execute as @a[scores={sui.leave=1..}] run function sui:game/_common/player/leave
+execute as @a[scores={sui.leave=1..}] run function sui:game/_common/matching/leave
 scoreboard players reset @a[scores={sui.leave=1..}] sui.leave
 scoreboard players enable @a sui.leave
