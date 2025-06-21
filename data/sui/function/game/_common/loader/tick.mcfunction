@@ -2,7 +2,7 @@
 
 # -- 共通のtick処理 ----------------------
 
-function sui:game/_common/control/matching/show_game_title
+function sui:game/_common/matching/show_game_title
 
 # -- ゲームごとのtick処理 ----------------------
 
