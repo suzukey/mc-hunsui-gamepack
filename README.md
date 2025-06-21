@@ -9,20 +9,27 @@ minecraft version: 1.21.6
 - Liars: Liar's Bar のマインクラフト版
 - PlayOut: オリジナルルールのトランプゲーム
 
-## コマンド
+## 導入方法
 
-### 導入
+1. データパックをワールドのデータパックフォルダに配置
+2. 以下のコマンドを実行：
 
 ```minecraft
 /reload
-
-/datapack enable file/mc-hunsui-gamepack "/
 ```
 
-## ゲーム
+## 使用方法
+
+サーバーに参加した全てのプレイヤーが以下の trigger コマンドで操作可能です：
 
 ```minecraft
-/function sui:select/
+# ゲーム選択
+/trigger sui.select.liars     # Liars を選択
+/trigger sui.select.playout   # PlayOut を選択
+
+# ゲーム操作
+/trigger sui.join             # ゲームに参加
+/trigger sui.leave            # ゲームから離脱
 ```
 
 ## 参考・Tools
