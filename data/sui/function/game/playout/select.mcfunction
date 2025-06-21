@@ -1,5 +1,9 @@
 # PlayOutを選択した時の処理
 
+# 既に選択されているかチェック
+execute if score GAME_TYPE sui.configs = GAME_TYPE_PLAYOUT sui.constants run tellraw @s ["",{"text":"[SUI_GAMEPACK] ","color":"gray"},{"text":"PlayOut は既に選択されています","color":"red"}]
+execute if score GAME_TYPE sui.configs = GAME_TYPE_PLAYOUT sui.constants run return 0
+
 # 参加者スコアボードをリセット
 scoreboard objectives remove sui.participants
 scoreboard objectives add sui.participants dummy "参加者リスト"
