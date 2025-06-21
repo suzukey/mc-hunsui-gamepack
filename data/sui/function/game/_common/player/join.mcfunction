@@ -18,11 +18,12 @@ scoreboard players set @s sui.participants 1
 # 人数を更新
 scoreboard players add #current_count sui.participants 1
 
-# 参加メッセージ
-tellraw @a ["",{"selector":"@s","color":"green"},{"text":" がゲームに参加しました（","color":"gray"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"yellow"},{"text":"/","color":"gray"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"yellow"},{"text":"人）","color":"gray"}]
+# 開始要件を満たすかチェック
+execute store result score #can_start sui.participants if score #current_count sui.participants >= MIN_PLAYERS sui.configs
 
-# 最小人数に達したかチェック
-execute if score #current_count sui.participants >= MIN_PLAYERS sui.configs run tellraw @a ["",{"text":"[システム] ","color":"gray"},{"text":"最小人数に達しました！ゲームを開始できます","color":"green"}]
+# 参加メッセージ（開始要件を満たす場合は緑、満たさない場合は黄色）
+execute if score #can_start sui.participants matches 1 run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" がゲームに参加しました（","color":"gray"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"green"},{"text":"/","color":"gray"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"green"},{"text":"人）","color":"gray"}]
+execute if score #can_start sui.participants matches 0 run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" がゲームに参加しました（","color":"gray"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"yellow"},{"text":"/","color":"gray"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"yellow"},{"text":"人）","color":"gray"}]
 
 # 成功を返す
 return 1
