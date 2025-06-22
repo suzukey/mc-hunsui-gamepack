@@ -21,41 +21,61 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 data/
 └── sui/                          # ゲーム固有の名前空間
-    ├── function/                 # コマンド関数
-    │   ├── game/                 # ゲーム関連の実装
-    │   │   ├── _common/          # 共通処理
-    │   │   │   ├── loader/       # 初期化・tick処理
-    │   │   │   └── player/       # プレイヤー管理
-    │   │   ├── liars/            # Liars ゲームの実装
-    │   │   │   ├── loader/       # ゲーム固有の初期化・tick
-    │   │   │   └── select.mcfunction
-    │   │   └── playout/          # PlayOut ゲームの実装
-    │   │       ├── loader/       # ゲーム固有の初期化・tick
-    │   │       └── select.mcfunction
-    │   ├── trigger/              # トリガーシステム
-    │   ├── join.mcfunction       # プレイヤー参加コマンド
-    │   └── leave.mcfunction      # プレイヤー退出コマンド
-    ├── advancement/              # プレイヤーの進行状況追跡
-    ├── predicate/                # 条件判定
-    └── loot_table/               # カード配布メカニクス
+    └── function/                 # コマンド関数
+        ├── common/               # 共通初期化・tick関数
+        │   ├── init.mcfunction   # 全ゲームの初期化を呼び出し
+        │   └── tick.mcfunction   # 全ゲームのtickを呼び出し
+        └── <game_name>/          # 各ゲームの実装（例: liars, playout）
+            ├── README.md         # ゲーム固有のドキュメント
+            ├── cmd/              # プレイヤーが使用するコマンド
+            │   ├── control/      # ゲーム制御コマンド
+            │   │   ├── start.mcfunction   # ゲーム開始
+            │   │   └── reset.mcfunction   # ゲームリセット
+            │   └── matching/     # マッチングコマンド
+            │       ├── join.mcfunction    # 参加
+            │       └── leave.mcfunction   # 退出
+            ├── internal/         # 内部ロジック
+            │   ├── init.mcfunction        # ゲーム初期化
+            │   ├── tick.mcfunction        # メインループ
+            │   ├── matching/              # マッチングフェーズ
+            │   │   └── tick.mcfunction
+            │   └── playing/               # プレイフェーズ
+            │       └── tick.mcfunction
+            └── trigger/          # ゲーム固有のトリガーシステム
+                ├── init.mcfunction        # トリガー初期化
+                └── tick.mcfunction        # トリガー処理
 ```
 
-### game ディレクトリの分類ルール
+### ディレクトリ構造の設計原則
 
-`game/` は内部実装を格納する特別なディレクトリです。以下の分類ルールに従ってください：
+#### `common/` ディレクトリ
 
-#### `_common/` に配置するもの
+- 全ゲームの初期化とtick処理を統括
+- 各ゲームの `internal/init.mcfunction` と `internal/tick.mcfunction` を呼び出す
+- ゲーム固有のロジックは含まない
 
-- **2 つ以上のゲームで共有される機能**
-- ゲームに依存しない汎用的な処理
-- 例: loader（初期化・tick）、カード操作の共通処理、プレイヤー管理の基本機能
+#### ゲーム固有ディレクトリ（`liars/`, `playout/` など）
 
-#### 各ゲームディレクトリ（`liars/`, `playout/` など）に配置するもの
+各ゲームは完全に独立した構造を持ち、以下の要素で構成されます：
 
-- **特定のゲームでのみ使用される機能**
-- ゲーム固有のルールやロジック
-- 必須ファイル: `select.mcfunction`
-- 必須ディレクトリ: `loader/`（`init.mcfunction` と `tick.mcfunction` を含む）
+##### `cmd/` - プレイヤー向けコマンド
+
+- **control/**: ゲームの開始・リセットなどの制御コマンド
+- **matching/**: 参加・退出などのマッチングコマンド
+- プレイヤーが直接実行可能なコマンドのみを配置
+
+##### `internal/` - 内部実装
+
+- ゲームロジックの中核部分
+- `init.mcfunction`: ゲーム固有の初期化処理
+- `tick.mcfunction`: メインゲームループ
+- フェーズ別のサブディレクトリ（matching/, playing/ など）
+
+##### `trigger/` - トリガーシステム
+
+- Minecraft の `/trigger` コマンドを使用したプレイヤーインタラクション
+- `init.mcfunction`: トリガー用スコアボードの作成
+- `tick.mcfunction`: トリガーの処理とリセット
 
 ## アーキテクチャ指針
 
@@ -70,15 +90,23 @@ data/
 
 #### スコアボード名
 
-- すべてのスコアボードに `sui.` プレフィックスを付ける
-- 例: `sui.configs`, `sui.constants`, `sui.participants`
-- ゲーム固有のスコアボードは `sui.<game>.<name>` 形式を推奨
+- ゲーム固有のスコアボードは `<game>.<category>` 形式を使用
+- 例: `liars.configs`, `liars.participants`, `liars.trigger`
+- カテゴリ例:
+  - `configs`: ゲーム設定（MIN_PLAYERS, MAX_PLAYERS など）
+  - `participants`: プレイヤー状態管理
+  - `trigger`: トリガーシステム用
 
 #### 関数名
 
 - 明確で動詞から始まる名前を使用
-- 内部関数は `game/` 内に配置
-- プレイヤーが使用するコマンドは簡潔に
+- プレイヤー向けコマンドは `cmd/` 内に配置し、簡潔な名前に
+- 内部実装は `internal/` 内に配置し、詳細な名前を使用
+
+#### トリガー名
+
+- ゲーム名をプレフィックスとして使用
+- 例: `liars.join`, `liars.leave`, `liars.start`, `liars.reset`
 
 ## 重要な注意事項
 

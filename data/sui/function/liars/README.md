@@ -5,7 +5,7 @@
 - 最小プレイヤー数: 2 人
 - 最大プレイヤー数: 4 人
 
-## 仕様
+## ゲーム概要
 
 Liar's bar のマインクラフト版
 
@@ -20,3 +20,44 @@ Liar's bar のマインクラフト版
 嘘であることがばれた、もしくは宣言が間違いだった場合は、ロシアンルーレットをプレイすることになる。
 
 最後まで生き残ることができれば勝利となる。
+
+## 実装構造
+
+### ディレクトリ構成
+
+```
+liars/
+├── README.md         # このファイル
+├── cmd/              # プレイヤーが使用するコマンド
+│   ├── control/      # ゲーム制御
+│   │   ├── start.mcfunction   # ゲーム開始
+│   │   └── reset.mcfunction   # ゲームリセット
+│   └── matching/     # マッチング機能
+│       ├── join.mcfunction    # ゲーム参加
+│       └── leave.mcfunction   # ゲーム退出
+├── internal/         # 内部実装
+│   ├── init.mcfunction        # 初期化処理
+│   ├── tick.mcfunction        # メインループ
+│   ├── matching/              # マッチングフェーズ
+│   │   └── tick.mcfunction
+│   └── playing/               # プレイフェーズ
+│       └── tick.mcfunction
+└── trigger/          # トリガーシステム
+    ├── init.mcfunction        # トリガー初期化
+    └── tick.mcfunction        # トリガー処理
+```
+
+### 使用するスコアボード
+
+- `liars.configs`: ゲーム設定（MIN_PLAYERS, MAX_PLAYERS, GAME_STARTED）
+- `liars.participants`: 参加者管理
+- `liars.trigger`: トリガーシステム（join, leave, start, reset）
+
+### コマンド使用方法
+
+プレイヤーは以下のトリガーコマンドを使用できます：
+
+- `/trigger liars.join`: ゲームに参加
+- `/trigger liars.leave`: ゲームから退出
+- `/trigger liars.start`: ゲームを開始（要件を満たす場合）
+- `/trigger liars.reset`: ゲームをリセット
