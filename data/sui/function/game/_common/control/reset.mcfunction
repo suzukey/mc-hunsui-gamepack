@@ -21,4 +21,4 @@ function sui:game/_common/control/on_game_changed
 function sui:game/_common/matching/update_score_title
 
 # 完了メッセージ
-tellraw @a [{"text":"■","color":"gray"},{"text":"ゲームがリセットされました","color":"green"}]
+tellraw @a [{"text":"■ ","color":"gray"},{"text":"ゲームがリセットされました","color":"green"}]
