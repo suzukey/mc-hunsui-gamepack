@@ -13,12 +13,8 @@ execute if score GAME_TYPE sui.configs = GAME_TYPE_NONE sui.constants run return
 
 # -- 人数が要件を満たしていない場合 ---------------
 
-# 現在の人数を取得
-execute store result score #current_count sui.participants if entity @a[scores={sui.participants=1}]
-
-# 人数を満たしていない場合の警告
-execute if score #current_count sui.participants < MIN_PLAYER_COUNT sui.configs run tellraw @s [{text:"■ ","color":"gray"},{"text":"プレイヤー数が足りません","color":"red"}]
-execute if score #current_count sui.participants < MIN_PLAYER_COUNT sui.configs run return 0
+execute if score #current_count sui.participants < MIN_PLAYERS sui.configs run tellraw @s [{text:"■ ","color":"gray"},{"text":"プレイヤー数が足りません","color":"red"}]
+execute if score #current_count sui.participants < MIN_PLAYERS sui.configs run return 0
 
 # -- ゲーム共通開始設定 ---------------
 

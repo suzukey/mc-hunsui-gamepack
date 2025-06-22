@@ -5,9 +5,6 @@
 execute if score @s sui.participants matches 1 run tellraw @s ["",{"text":"■ ","color":"gray"},{"text":"既にゲームに参加しています","color":"red"}]
 execute if score @s sui.participants matches 1 run return 0
 
-# 現在の人数を取得
-execute store result score #current_count sui.participants if entity @a[scores={sui.participants=1}]
-
 # 最大人数チェック
 execute if score #current_count sui.participants >= MAX_PLAYERS sui.configs run tellraw @s ["",{"text":"■ ","color":"gray"},{"text":"ゲームは満員です","color":"red"}]
 execute if score #current_count sui.participants >= MAX_PLAYERS sui.configs run return 0
