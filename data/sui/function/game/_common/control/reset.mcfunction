@@ -17,8 +17,7 @@ scoreboard players set MAX_PLAYERS sui.configs 0
 scoreboard players set MIN_PLAYERS sui.configs 0
 
 # 参加者リストのクリア
-function sui:game/_common/control/on_game_changed
-function sui:game/_common/matching/update_score_title
+function sui:game/_common/matching/on_game_changed
 
 # 完了メッセージ
 tellraw @a [{"text":"■ ","color":"gray"},{"text":"ゲームがリセットされました","color":"green"}]

@@ -9,6 +9,3 @@ scoreboard players reset @s sui.participants
 
 # 離脱メッセージ
 tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" がゲームから離脱しました","color":"gray"}]
-
-# 参加者リストのタイトルを更新
-function sui:game/_common/matching/update_score_title

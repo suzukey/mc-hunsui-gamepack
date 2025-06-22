@@ -2,10 +2,9 @@
 
 # -- 共通のtick処理 ----------------------
 
-function sui:game/_common/matching/show_game_title
+# -- ゲーム開始前のtick処理 ----------------------
 
-execute store result score #current_count sui.participants if entity @a[scores={sui.participants=1}]
-execute store result score #can_start sui.participants if score #current_count sui.participants >= MIN_PLAYERS sui.configs
+execute if score GAME_STARTED sui.configs matches 0 run function sui:game/_common/matching/tick
 
 # -- ゲームごとのtick処理 ----------------------
 
