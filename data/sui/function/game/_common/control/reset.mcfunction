@@ -19,6 +19,7 @@ scoreboard players set MIN_PLAYERS sui.configs 0
 # 参加者リストのクリア
 scoreboard objectives remove sui.participants
 scoreboard objectives add sui.participants dummy "参加者"
+scoreboard objectives setdisplay sidebar sui.participants
 
 # 完了メッセージ
 tellraw @a [{"text":"[SUI_GAMEPACK] ","color":"gold"},{"text":"ゲームがリセットされました","color":"green"}]
