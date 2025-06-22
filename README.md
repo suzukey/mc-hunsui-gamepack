@@ -7,7 +7,6 @@ minecraft version: 1.21.6
 ## 内容
 
 - Liars: Liar's Bar のマインクラフト版
-- PlayOut: オリジナルルールのトランプゲーム
 
 ## 導入方法
 
@@ -23,10 +22,6 @@ minecraft version: 1.21.6
 サーバーに参加した全てのプレイヤーが以下の trigger コマンドで操作可能です：
 
 ```minecraft
-# ゲーム選択
-/trigger sui.select.liars     # Liars を選択
-/trigger sui.select.playout   # PlayOut を選択
-
 # ゲーム操作
 /trigger sui.join             # ゲームに参加
 /trigger sui.leave            # ゲームから離脱
