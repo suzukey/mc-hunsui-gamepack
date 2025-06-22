@@ -15,5 +15,3 @@ tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" がゲームから�
 
 # 参加者リストのタイトルを更新
 function sui:game/_common/matching/update_score_title
-# 成功を返す
-return 1
