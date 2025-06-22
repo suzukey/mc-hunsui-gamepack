@@ -1,4 +1,0 @@
-# 参加者スコアボードのタイトルを更新（例: "参加者 (2/8)"）
-execute if score #can_start sui.participants matches 0 run scoreboard objectives modify sui.participants displayname [{"text":"参加者 ","color":"white"},{text:"(",color:"yellow"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"yellow"},{"text":"/","color":"yellow"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"yellow"},{"text":")","color":"yellow"}]
-
-execute if score #can_start sui.participants matches 1 run scoreboard objectives modify sui.participants displayname [{"text":"参加者 ","color":"white"},{text:"(",color:"green"},{"score":{"name":"#current_count","objective":"sui.participants"},"color":"green"},{"text":"/","color":"green"},{"score":{"name":"MAX_PLAYERS","objective":"sui.configs"},"color":"green"},{"text":")","color":"green"}]
