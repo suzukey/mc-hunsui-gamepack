@@ -16,5 +16,9 @@ scoreboard players operation GAME_TYPE sui.configs = GAME_TYPE_NONE sui.constant
 scoreboard players set MAX_PLAYERS sui.configs 0
 scoreboard players set MIN_PLAYERS sui.configs 0
 
+# 参加者リストのクリア
+scoreboard objectives remove sui.participants
+scoreboard objectives add sui.participants dummy "参加者"
+
 # 完了メッセージ
 tellraw @a [{"text":"[SUI_GAMEPACK] ","color":"gold"},{"text":"ゲームがリセットされました","color":"green"}]
