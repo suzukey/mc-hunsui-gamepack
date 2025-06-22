@@ -35,6 +35,13 @@ scoreboard objectives setdisplay sidebar sui.participants
 scoreboard objectives add sui.score dummy "ゲームスコア"
 scoreboard objectives setdisplay list sui.score
 
+# -- プレイヤー管理 ----------------------
+
+scoreboard objectives add sui.presence dummy "プレゼンス状態"
+# プレゼンス状態: 1 = オンライン, 2 = オフライン
+scoreboard objectives add sui.offline_timer dummy "オフラインタイマー"
+# オフラインタイマー: オフライン経過tick数（600tick = 30秒）
+
 # -- ゲームごとの初期化 ----------------------
 
 function sui:game/liars/loader/init
