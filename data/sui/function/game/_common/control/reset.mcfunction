@@ -1,9 +1,6 @@
 # ゲームリセット処理
 
-# 既にゲームが開始されている場合は何もしない
-execute if score GAME_STARTED sui.configs matches 1 run return 0
-
-# 選択されているゲームタイプに応じて対応するリセット処理を呼び出す
+# -- ゲームごとのリセット処理 ----------------
 
 # Liars ゲームのリセット
 execute if score GAME_TYPE sui.configs = GAME_TYPE_LIARS sui.constants run function sui:game/liars/control/reset
@@ -11,5 +8,13 @@ execute if score GAME_TYPE sui.configs = GAME_TYPE_LIARS sui.constants run funct
 # PlayOut ゲームのリセット
 execute if score GAME_TYPE sui.configs = GAME_TYPE_PLAYOUT sui.constants run function sui:game/playout/control/reset
 
-# ゲームが選択されていない場合の警告
-execute if score GAME_TYPE sui.configs = GAME_TYPE_NONE sui.constants run tellraw @s {"text":"ゲームが選択されていません","color":"red"}
+# -- 共通のリセット処理 ----------------
+
+# ゲーム関連設定のスコアボードをリセット
+scoreboard players set GAME_STARTED sui.configs 0
+scoreboard players operation GAME_TYPE sui.configs = GAME_TYPE_NONE sui.constants
+scoreboard players set MAX_PLAYERS sui.configs 0
+scoreboard players set MIN_PLAYERS sui.configs 0
+
+# 完了メッセージ
+tellraw @a [{"text":"[SUI_GAMEPACK] ","color":"gold"},{"text":"ゲームがリセットされました","color":"green"}]
