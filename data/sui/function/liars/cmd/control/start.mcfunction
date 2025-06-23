@@ -59,9 +59,20 @@ scoreboard players set @e[tag=liars.seat.4] liars.seat 4
 # プレイヤーを座席に割り当て
 function sui:liars/internal/playing/seat/assign_seats
 
+# -- ロシアンルーレット初期化 --------------------
+
+scoreboard objectives remove liars.roulette
+scoreboard objectives add liars.roulette dummy "ロシアンルーレット"
+
+execute as @a[scores={liars.participants=1..}] store result score @s liars.roulette run random roll 1..6
+
+# -- アイテム配布関連 ------------------
+
 # 全アイテムを削除
 kill @e[type=item]
 clear @a
+
+# カード以外の使用アイテムを配布
 
 # フェーズ開始処理を実行
 function sui:liars/internal/playing/start_phase
