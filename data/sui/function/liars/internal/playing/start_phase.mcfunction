@@ -2,7 +2,7 @@
 
 # -- カード配布処理 ----------------------
 
-# function sui:liars/internal/playing/give_cards
+function sui:liars/internal/playing/deal/deal_all
 
 # -- フェーズをインクリメント ----------------------
 
