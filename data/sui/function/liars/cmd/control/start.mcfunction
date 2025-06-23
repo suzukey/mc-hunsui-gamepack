@@ -23,17 +23,28 @@ tellraw @a [{"text":"■ ","color":"gray"},{"text":"ゲームを開始します"
 scoreboard objectives remove liars.game
 scoreboard objectives add liars.game dummy "ゲーム状態"
 scoreboard players set CURRENT_PHASE liars.game 0
-scoreboard players set CURRENT_TURN liars.game 0
 
 # -- 山札・手札管理 ----------------------
 
 scoreboard objectives remove liars.number_of_cards
 scoreboard objectives add liars.number_of_cards dummy "手札枚数"
 
+scoreboard objectives remove liars.selected_count
+scoreboard objectives add liars.selected_count dummy "選択カード数"
+
 # -- プレイヤー個別データ ----------------------
 
 scoreboard objectives remove liars.seat
 scoreboard objectives add liars.seat dummy "プレイヤー座席"
+
+scoreboard objectives remove liars.current_turn
+scoreboard objectives add liars.current_turn dummy "現在のターン"
+
+scoreboard objectives remove liars.is_alive
+scoreboard objectives add liars.is_alive dummy "生存状態"
+
+# 全員を生存状態にする
+scoreboard players set @a[scores={liars.participants=1}] liars.is_alive 1
 
 # -- 座席エンティティの初期化 ----------------------
 
@@ -59,12 +70,16 @@ scoreboard players set @e[tag=liars.seat.4] liars.seat 4
 # プレイヤーを座席に割り当て
 function sui:liars/internal/playing/seat/assign_seats
 
+# 座席1番のプレイヤーを最初のターンプレイヤーに設定
+scoreboard players set @a[scores={liars.participants=1}] liars.current_turn 0
+scoreboard players set @a[scores={liars.participants=1,liars.seat=1}] liars.current_turn 1
+
 # -- ロシアンルーレット初期化 --------------------
 
 scoreboard objectives remove liars.roulette
 scoreboard objectives add liars.roulette dummy "ロシアンルーレット"
 
-execute as @a[scores={liars.participants=1..}] store result score @s liars.roulette run random value 1..6
+execute as @a[scores={liars.participants=1}] store result score @s liars.roulette run random value 1..6
 
 # -- アイテム配布関連 ------------------
 
@@ -73,7 +88,7 @@ kill @e[type=item]
 clear @a
 
 # カード以外の使用アイテムを配布
-execute as @a[scores={liars.participants=1..}] run function sui:liars/internal/playing/give_action_items
+execute as @a[scores={liars.participants=1}] run function sui:liars/internal/playing/give_action_items
 
 # フェーズ開始処理を実行
 function sui:liars/internal/playing/start_phase
