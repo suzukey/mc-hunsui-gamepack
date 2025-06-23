@@ -59,5 +59,9 @@ scoreboard players set @e[tag=liars.seat.4] liars.seat 4
 # プレイヤーを座席に割り当て
 function sui:liars/internal/playing/seat/assign_seats
 
+# 全アイテムを削除
+kill @e[type=item]
+clear @a
+
 # フェーズ開始処理を実行
 function sui:liars/internal/playing/start_phase
