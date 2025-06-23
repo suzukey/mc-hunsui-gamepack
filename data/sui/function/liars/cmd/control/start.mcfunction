@@ -64,7 +64,7 @@ function sui:liars/internal/playing/seat/assign_seats
 scoreboard objectives remove liars.roulette
 scoreboard objectives add liars.roulette dummy "ロシアンルーレット"
 
-execute as @a[scores={liars.participants=1..}] store result score @s liars.roulette run random roll 1..6
+execute as @a[scores={liars.participants=1..}] store result score @s liars.roulette run random value 1..6
 
 # -- アイテム配布関連 ------------------
 
