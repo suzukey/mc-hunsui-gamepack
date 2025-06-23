@@ -6,4 +6,4 @@ execute if entity @s[nbt={SelectedItem:{components:{"minecraft:custom_data":{act
 execute if entity @s[nbt={SelectedItem:{components:{"minecraft:custom_data":{action:"call_lie"}}}}] run function sui:liars/internal/playing/action/call_lie
 
 # 使用回数をリセット
-scoreboard players reset @s liars.used_carrot
+scoreboard players reset @s liars.used_carrot_stick

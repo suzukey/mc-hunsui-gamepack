@@ -1,7 +1,5 @@
 # プレイヤーが座席から降りられないようにする
 function sui:liars/internal/playing/seat/ride_seats
 
-# advancement をリセット（連続使用を可能にする）
-advancement revoke @a only sui:liars/used_play_cards
-advancement revoke @a only sui:liars/used_call_lie
-advancement revoke @a only sui:liars/used_card
+# 人参棒クリック検知（スコアボード方式）
+execute as @a[scores={liars.used_carrot_stick=1..}] at @s run function sui:liars/internal/playing/on_carrot_stick_used

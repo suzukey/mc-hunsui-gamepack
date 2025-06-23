@@ -16,6 +16,10 @@ scoreboard objectives setdisplay sidebar liars.participants
 scoreboard objectives add liars.score dummy "ゲームスコア"
 scoreboard objectives setdisplay list liars.score
 
+# -- アクション検知 ----------------------
+
+scoreboard objectives add liars.used_carrot_stick minecraft.used:minecraft.carrot_on_a_stick "人参棒使用"
+
 # -- Trigger システムの初期化 ----------------------
 
 function sui:liars/trigger/init
