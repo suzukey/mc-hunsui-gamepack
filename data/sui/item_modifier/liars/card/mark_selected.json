@@ -8,13 +8,14 @@
     "entity": "this",
     "name": [
       {
-        "nbt": "SelectedItem.components.\"minecraft:item_name\"",
+        "nbt": "SelectedItem.components.\"minecraft:custom_data\".card_name",
         "entity": "@s",
-        "interpret": true
+        "color": "gold",
+        "italic": false
       },
       {
         "text": " (選択中)",
-        "color": "yellow",
+        "color": "gold",
         "italic": false
       }
     ]
