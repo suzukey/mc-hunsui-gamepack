@@ -78,8 +78,11 @@ scoreboard players set @a[scores={liars.participants=1,liars.seat=1}] liars.curr
 
 scoreboard objectives remove liars.roulette
 scoreboard objectives add liars.roulette dummy "ロシアンルーレット"
-
 execute as @a[scores={liars.participants=1}] store result score @s liars.roulette run random value 1..6
+
+scoreboard objectives remove liars.triggered
+scoreboard objectives add liars.triggered dummy "引き金を引いた回数"
+execute as @a[scores={liars.participants=1}] run scoreboard players set @s liars.triggered 0
 
 # -- アイテム配布関連 ------------------
 
