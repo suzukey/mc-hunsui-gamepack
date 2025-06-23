@@ -2,5 +2,5 @@
 
 item modify entity @s weapon.mainhand sui:liars/card/mark_selected
 
-# フィードバック
-title @s actionbar [{"text":"■ ","color":"gray"},{"text":"カードを選択しました","color":"green"}]
+# 完了テキスト
+tellraw @s [{"text":"■ ","color":"gray"},{"text":"カードを選択しました","color":"green"}]
