@@ -10,6 +10,9 @@ scoreboard objectives setdisplay sidebar liars.participants
 # ゲーム関連設定の値をリセット
 scoreboard players set GAME_STARTED liars.configs 0
 
+# 所持しているアイテム削除
+clear @a
+
 # 既存の座席エンティティを削除 (立ち上がることができるようにする)
 kill @e[tag=liars.seat]
 
