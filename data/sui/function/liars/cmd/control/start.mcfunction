@@ -37,13 +37,13 @@ kill @e[tag=liars.seat]
 
 # 座席エンティティを生成（4つの固定位置）
 # 座席1: 北側
-summon armor_stand 12 -60 -8 {Tags:["liars.seat","liars.seat.1"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
+summon armor_stand 18 -59.5 -14 {Tags:["liars.seat","liars.seat.1"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
 # 座席2: 東側
-summon armor_stand 18 -60 -14 {Tags:["liars.seat","liars.seat.2"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
+summon armor_stand 24 -59.5 -8 {Tags:["liars.seat","liars.seat.2"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
 # 座席3: 南側
-summon armor_stand 24 -60 -8 {Tags:["liars.seat","liars.seat.3"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
+summon armor_stand 18 -59.5 -2 {Tags:["liars.seat","liars.seat.3"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
 # 座席4: 西側
-summon armor_stand 18 -60 -2 {Tags:["liars.seat","liars.seat.4"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
+summon armor_stand 12 -59.5 -8 {Tags:["liars.seat","liars.seat.4"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}
 
 # 座席番号をスコアボードに設定
 scoreboard players set @e[tag=liars.seat.1] liars.seat 1
