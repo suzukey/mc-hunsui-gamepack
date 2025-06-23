@@ -1,0 +1,20 @@
+{
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:carrot_on_a_stick",
+          "components": {
+            "minecraft:custom_data": {
+              "action": "play_cards"
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "sui:liars/internal/playing/action/play_cards"
+  }
+}
