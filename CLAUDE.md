@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 言語設定
 
-**重要**: このプロジェクトでは、思考は**英語**で行い、すべてのコメント、ドキュメント、コミットメッセージを**日本語**で記述してください。
+**重要**: このプロジェクトでは、思考は**英語**で行い、すべてのコメント、ドキュメント、コミットメッセージを**日本語(UTF-8)**で記述してください。
 
 ## プロジェクト概要
 
@@ -50,7 +50,7 @@ data/
 
 #### `common/` ディレクトリ
 
-- 全ゲームの初期化とtick処理を統括
+- 全ゲームの初期化と tick 処理を統括
 - 各ゲームの `internal/init.mcfunction` と `internal/tick.mcfunction` を呼び出す
 - ゲーム固有のロジックは含まない
 
