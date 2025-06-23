@@ -1,5 +1,7 @@
 # -- 配布処理初期化 ----------
 
+tellraw @a [{"text":"■ ","color":"gray"},{"text":"カードを配布します","color":"green"}]
+
 # 全プレイヤーの手札をリセット
 clear @a carrot_on_a_stick 0
 
