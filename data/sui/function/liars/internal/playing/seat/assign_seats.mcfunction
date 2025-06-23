@@ -50,7 +50,7 @@ scoreboard objectives remove liars.temp
 
 # -- 座席への着席 ----------------------
 
-function sui:liars/internal/playing/ride_seats
+function sui:liars/internal/playing/seat/ride_seats
 
 # -- 通知 ----------------------
 
