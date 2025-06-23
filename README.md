@@ -23,8 +23,10 @@ minecraft version: 1.21.6
 
 ```minecraft
 # ゲーム操作
-/trigger sui.join             # ゲームに参加
-/trigger sui.leave            # ゲームから離脱
+/trigger liars.join   # ゲームに参加
+/trigger liars.leave  # ゲームから離脱
+/trigger liars.start  # ゲーム開始
+/trigger liars.reset  # ゲームリセット
 ```
 
 ## 参考・Tools
