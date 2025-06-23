@@ -1,0 +1,23 @@
+[
+  {
+    "function": "minecraft:set_custom_data",
+    "tag": "{selected:1b}"
+  },
+  {
+    "function": "minecraft:set_name",
+    "entity": "this",
+    "name": [
+      {
+        "nbt": "SelectedItem.components.\"minecraft:custom_data\".card_name",
+        "entity": "@s",
+        "color": "gold",
+        "italic": false
+      },
+      {
+        "text": " (選択中)",
+        "color": "gold",
+        "italic": false
+      }
+    ]
+  }
+]

@@ -17,4 +17,4 @@ execute if score #current_count liars.participants >= MAX_PLAYERS liars.configs 
 scoreboard players set @s liars.participants 1
 
 # 参加メッセージ
-tellraw @a ["",{"selector":"@s","color":"green"},{"text":" がゲームに参加しました","color":"gray"}]
+tellraw @a [{text:"■ ",color:"gray"},{"selector":"@s","color":"green"},{"text":" がゲームに参加しました","color":"gray"}]

@@ -12,4 +12,4 @@ execute unless score @s liars.participants matches 1 run return 0
 scoreboard players reset @s liars.participants
 
 # 離脱メッセージ
-tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" がゲームから離脱しました","color":"gray"}]
+tellraw @a [{text:"■ ",color:"gray"},{"selector":"@s","color":"yellow"},{"text":" がゲームから離脱しました","color":"gray"}]
