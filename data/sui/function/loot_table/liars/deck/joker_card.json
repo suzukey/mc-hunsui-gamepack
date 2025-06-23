@@ -1,0 +1,36 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot_on_a_stick",
+          "functions": [
+            {
+              "function": "minecraft:set_custom_data",
+              "tag": "{card_type:4,card_name:\"Joker\"}"
+            },
+            {
+              "function": "minecraft:set_custom_model_data",
+              "floats": {
+                "mode": "replace_all",
+                "values": [
+                  1004
+                ]
+              }
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Joker",
+                "color": "dark_purple",
+                "italic": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

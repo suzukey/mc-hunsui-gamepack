@@ -1,0 +1,48 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot_on_a_stick",
+          "functions": [
+            {
+              "function": "minecraft:set_custom_data",
+              "tag": "{action:\"play_cards\"}"
+            },
+            {
+              "function": "minecraft:set_custom_model_data",
+              "floats": {
+                "mode": "replace_all",
+                "values": [
+                  2001
+                ]
+              }
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "カードを出す",
+                "color": "green",
+                "italic": false,
+                "bold": true
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "mode": "replace_all",
+              "lore": [
+                {
+                  "text": "選択したカードを出します",
+                  "color": "gray",
+                  "italic": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

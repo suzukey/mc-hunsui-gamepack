@@ -1,0 +1,44 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:crossbow",
+          "functions": [
+            {
+              "function": "minecraft:set_custom_model_data",
+              "floats": {
+                "mode": "replace_all",
+                "values": [
+                  2003
+                ]
+              }
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "リボルバー",
+                "color": "dark_red",
+                "bold": true,
+                "italic": false
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "mode": "replace_all",
+              "lore": [
+                {
+                  "text": "0|6",
+                  "color": "gray",
+                  "italic": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

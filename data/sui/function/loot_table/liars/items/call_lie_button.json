@@ -1,0 +1,48 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot_on_a_stick",
+          "functions": [
+            {
+              "function": "minecraft:set_custom_data",
+              "tag": "{action:\"call_lie\"}"
+            },
+            {
+              "function": "minecraft:set_custom_model_data",
+              "floats": {
+                "mode": "replace_all",
+                "values": [
+                  2002
+                ]
+              }
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "嘘を指摘！",
+                "color": "red",
+                "italic": false,
+                "bold": true
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "mode": "replace_all",
+              "lore": [
+                {
+                  "text": "前のプレイヤーの嘘を指摘します",
+                  "color": "gray",
+                  "italic": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

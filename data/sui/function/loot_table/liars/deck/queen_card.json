@@ -1,0 +1,36 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot_on_a_stick",
+          "functions": [
+            {
+              "function": "minecraft:set_custom_data",
+              "tag": "{card_type:1,card_name:\"Queen\"}"
+            },
+            {
+              "function": "minecraft:set_custom_model_data",
+              "floats": {
+                "mode": "replace_all",
+                "values": [
+                  1001
+                ]
+              }
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Queen",
+                "color": "gold",
+                "italic": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
