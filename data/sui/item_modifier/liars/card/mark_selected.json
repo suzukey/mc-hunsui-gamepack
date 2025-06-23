@@ -1,0 +1,22 @@
+[
+  {
+    "function": "minecraft:set_custom_data",
+    "tag": "{selected:1b}"
+  },
+  {
+    "function": "minecraft:set_name",
+    "entity": "this",
+    "name": [
+      {
+        "nbt": "SelectedItem.components.\"minecraft:item_name\"",
+        "entity": "@s",
+        "interpret": true
+      },
+      {
+        "text": " (選択中)",
+        "color": "yellow",
+        "italic": false
+      }
+    ]
+  }
+]

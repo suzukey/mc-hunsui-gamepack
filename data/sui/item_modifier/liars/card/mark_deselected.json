@@ -1,0 +1,16 @@
+[
+  {
+    "function": "minecraft:set_custom_data",
+    "tag": "{selected:0b}"
+  },
+  {
+    "function": "minecraft:set_name",
+    "entity": "this",
+    "name": {
+      "nbt": "SelectedItem.components.\"minecraft:custom_data\".card_name",
+      "entity": "@s",
+      "color": "gold",
+      "italic": false
+    }
+  }
+]
