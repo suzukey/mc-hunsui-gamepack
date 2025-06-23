@@ -56,6 +56,8 @@ scoreboard players set @e[tag=liars.seat.2] liars.seat 2
 scoreboard players set @e[tag=liars.seat.3] liars.seat 3
 scoreboard players set @e[tag=liars.seat.4] liars.seat 4
 
+# プレイヤーを座席に割り当て
+function sui:liars/internal/playing/seat/assign_seats
+
 # フェーズ開始処理を実行
-scoreboard players set CURRENT_PHASE liars.game 0
 function sui:liars/internal/playing/start_phase
