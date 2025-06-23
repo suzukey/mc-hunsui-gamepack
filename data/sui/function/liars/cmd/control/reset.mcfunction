@@ -2,6 +2,10 @@
 
 # -- リセット処理 ----------------
 
+# 参加者のスコアボードのリセット
+scoreboard objectives remove liars.participants
+scoreboard objectives add liars.participants dummy
+
 # ゲーム関連設定のスコアボードをリセット
 scoreboard players set GAME_STARTED liars.configs 0
 scoreboard players set MAX_PLAYERS liars.configs 0

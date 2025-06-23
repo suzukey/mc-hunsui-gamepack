@@ -1,2 +1,2 @@
 # プレイヤーが座席から降りられないようにする
-function sui:liars/playing/ride_seats
+function sui:liars/internal/playing/ride_seats
