@@ -25,6 +25,11 @@ scoreboard objectives add liars.game dummy "ゲーム状態"
 scoreboard players set CURRENT_PHASE liars.game 0
 scoreboard players set CURRENT_TURN liars.game 0
 
+# -- 山札・手札管理 ----------------------
+
+scoreboard objectives remove liars.number_of_cards
+scoreboard objectives add liars.number_of_cards dummy "手札枚数"
+
 # -- プレイヤー個別データ ----------------------
 
 scoreboard objectives remove liars.seat

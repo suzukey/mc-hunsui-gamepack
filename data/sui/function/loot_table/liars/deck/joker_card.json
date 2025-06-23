@@ -9,7 +9,7 @@
           "functions": [
             {
               "function": "minecraft:set_custom_data",
-              "tag": "{card_type:4,card_name:\"Joker\"}"
+              "tag": "{card_type:4,card_name:\"Joker\",item_type:\"card\"}"
             },
             {
               "function": "minecraft:set_custom_model_data",

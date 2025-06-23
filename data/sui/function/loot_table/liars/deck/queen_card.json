@@ -9,7 +9,7 @@
           "functions": [
             {
               "function": "minecraft:set_custom_data",
-              "tag": "{card_type:1,card_name:\"Queen\"}"
+              "tag": "{card_type:1,card_name:\"Queen\",item_type:\"card\"}"
             },
             {
               "function": "minecraft:set_custom_model_data",
