@@ -16,10 +16,6 @@ scoreboard objectives setdisplay sidebar liars.participants
 scoreboard objectives add liars.score dummy "ゲームスコア"
 scoreboard objectives setdisplay list liars.score
 
-# -- カード選択管理 ----------------------
-
-scoreboard objectives add liars.selected_count dummy "選択カード数"
-
 # -- アクション検知 ----------------------
 
 scoreboard objectives add liars.used_carrot_stick minecraft.used:minecraft.carrot_on_a_stick "人参棒使用"

@@ -16,5 +16,8 @@ clear @a
 # 既存の座席エンティティを削除 (立ち上がることができるようにする)
 kill @e[tag=liars.seat]
 
+# 全プレイヤーのゲームモードを戻す
+gamemode adventure @a
+
 # 完了メッセージ
 tellraw @a [{"text":"■ ","color":"gray"},{"text":"ゲームがリセットされました","color":"green"}]
