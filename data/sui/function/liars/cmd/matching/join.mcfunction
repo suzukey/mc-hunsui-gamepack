@@ -3,6 +3,10 @@
 
 # -- 条件チェック ---------------
 
+# ゲームが始まっているかチェック
+execute if score PLAYING liars.game matches 1 run tellraw @s ["",{"text":"■ ","color":"gray"},{"text":"ゲームは既に開始されています","color":"red"}]
+execute if score PLAYING liars.game matches 1 run return 0
+
 # 既に参加しているかチェック
 execute if entity @s[tag=liars.participant] run tellraw @s ["",{"text":"■ ","color":"gray"},{"text":"既にゲームに参加しています","color":"red"}]
 execute if entity @s[tag=liars.participant] run return 0
