@@ -26,3 +26,9 @@ scoreboard players add CURRENT_PHASE liars.game 1
 # -- フェーズ開始アナウンス ----------------------
 
 function sui:liars/internal/playing/phase/announce_phase
+
+# -- ターンを開始 ----------------------
+
+# ターンカウンタとタグをリセット
+scoreboard players reset #search_count liars.game
+function sui:liars/internal/playing/turn/start

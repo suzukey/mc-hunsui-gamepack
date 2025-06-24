@@ -1,11 +1,6 @@
 # ターン管理のメインループ
 # playing/tick.mcfunction から呼ばれる
 
-# -- ターン状態の管理 ----------------------
-
-# 現在のターンプレイヤーが存在しない場合は初期化
-execute unless entity @a[tag=liars.current_turn] run function sui:liars/internal/playing/turn/start
-
 # -- アクション可能な表示 ----------------------
 
 # 現在のターンプレイヤーに行動を促す
