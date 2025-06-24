@@ -28,7 +28,7 @@ scoreboard players set IS_PREV_LIE liars.game 0
 
 # -- アイテムをクリア ----------------------
 
-clear @a[scores={liars.participants=1}]
+clear @a[tag=liars.participant]
 
 # -- エンティティを削除 ----------------------
 

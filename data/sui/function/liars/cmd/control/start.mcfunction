@@ -21,7 +21,7 @@ tellraw @a [{"text":"■ ","color":"gray"},{"text":"ゲームを開始します"
 scoreboard players set CURRENT_PHASE liars.game 0
 
 # 全員を生存状態にする
-scoreboard players set @a[scores={liars.participants=1}] liars.is_alive 1
+scoreboard players set @a[tag=liars.participant] liars.is_alive 1
 
 # -- 座席エンティティの初期化 ----------------------
 
@@ -45,16 +45,16 @@ scoreboard players set @e[tag=liars.seat.4] liars.seat 4
 function sui:liars/internal/playing/seat/assign_seats
 
 # 座席1番のプレイヤーを最初のターンプレイヤーに設定
-scoreboard players set @a[scores={liars.participants=1}] liars.current_turn 0
-scoreboard players set @a[scores={liars.participants=1,liars.seat=1}] liars.current_turn 1
+scoreboard players set @a[tag=liars.participant] liars.current_turn 0
+scoreboard players set @a[tag=liars.participant,scores={liars.seat=1}] liars.current_turn 1
 
 # -- ロシアンルーレット初期化 --------------------
 
 # ランダムな弾倉位置を設定
-execute as @a[scores={liars.participants=1}] store result score @s liars.roulette run random value 1..6
+execute as @a[tag=liars.participant] store result score @s liars.roulette run random value 1..6
 
 # 引き金を引いた回数を初期化
-execute as @a[scores={liars.participants=1}] run scoreboard players set @s liars.triggered 0
+execute as @a[tag=liars.participant] run scoreboard players set @s liars.triggered 0
 
 # -- アイテム配布関連 ------------------
 
@@ -63,7 +63,7 @@ kill @e[type=item]
 clear @a
 
 # カード以外の使用アイテムを配布
-execute as @a[scores={liars.participants=1}] run function sui:liars/internal/playing/give_action_items
+execute as @a[tag=liars.participant] run function sui:liars/internal/playing/give_action_items
 
 # フェーズ開始処理を実行
 function sui:liars/internal/playing/phase/start
