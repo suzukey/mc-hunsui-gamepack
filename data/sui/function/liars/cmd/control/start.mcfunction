@@ -94,4 +94,4 @@ clear @a
 execute as @a[scores={liars.participants=1}] run function sui:liars/internal/playing/give_action_items
 
 # フェーズ開始処理を実行
-function sui:liars/internal/playing/start_phase
+function sui:liars/internal/playing/phase/start
