@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "liars:item/ace_card"
+  },
+  "hand_animation_on_swap": false
+}
