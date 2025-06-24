@@ -11,7 +11,7 @@ scoreboard players reset @a liars.seat
 # -- 効率的な座席割り当て ----------------------
 
 # カウンター初期化
-scoreboard players set #seat_counter liars.configs 0
+scoreboard players set #seat_counter liars.game 0
 
 # 参加者をランダムに並べて座席を割り当て
 execute as @a[tag=liars.participant,sort=random] run function sui:liars/internal/playing/seat/assign_next_seat
