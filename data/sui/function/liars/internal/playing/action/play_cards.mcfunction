@@ -9,7 +9,7 @@ execute unless entity @s[tag=liars.current_turn] run return 0
 # -- カード選択チェック ----------------------
 
 # 選択したカード数を取得
-execute store result score #selected_count liars.game run clear @s carrot_on_a_stick[minecraft:custom_data={liars_selected:1b}] 0
+execute store result score #selected_count liars.game run clear @s carrot_on_a_stick[minecraft:custom_data={selected:1b}] 0
 
 # カードが選択されていない場合
 execute if score #selected_count liars.game matches 0 run tellraw @s [{"text":"■ ","color":"gray"},{"text":"カードを選択してください","color":"red"}]
@@ -37,7 +37,7 @@ tellraw @a [{"text":"■ ","color":"gray"},{"selector":"@s","color":"yellow"},{"
 # TODO: カードを保存して後で検証できるようにする
 
 # 選択したカードをクリア
-clear @s carrot_on_a_stick[minecraft:custom_data={liars_selected:1b}]
+clear @s carrot_on_a_stick[minecraft:custom_data={selected:1b}]
 
 # -- ターン終了 ----------------------
 
