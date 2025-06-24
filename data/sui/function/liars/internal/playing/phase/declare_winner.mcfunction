@@ -1,7 +1,7 @@
 # 勝利者宣言処理
 
 # 勝利者を取得（最後の1人）
-execute as @a[tag=liars.participant,gamemode=!spectator] run tag @s add liars.winner
+execute as @a[tag=liars.alive] run tag @s add liars.winner
 
 # 勝利メッセージを表示
 execute as @a[tag=liars.winner] run tellraw @a [{"text":"[Liars] ","color":"gold"},{"selector":"@s"},{"text":"が勝利しました！","color":"yellow"}]

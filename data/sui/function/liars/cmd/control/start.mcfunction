@@ -21,7 +21,7 @@ tellraw @a [{"text":"■ ","color":"gray"},{"text":"ゲームを開始します"
 scoreboard players set CURRENT_PHASE liars.game 0
 
 # 全員を生存状態にする
-scoreboard players set @a[tag=liars.participant] liars.is_alive 1
+tag @a[tag=liars.participant] add liars.alive
 
 # -- 座席エンティティの初期化 ----------------------
 

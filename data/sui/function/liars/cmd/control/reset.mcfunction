@@ -18,7 +18,7 @@ scoreboard players reset * liars.current_turn
 
 # グローバル変数をリセット（0に設定）
 scoreboard players set PLAYING liars.game 0
-scoreboard players set ACTIVE_PLAYERS liars.game 0
+scoreboard players set ALIVE_PLAYERS liars.game 0
 scoreboard players set CURRENT_PHASE liars.game 0
 scoreboard players set CURRENT_TURN liars.game 0
 scoreboard players set DECLARED_CARD liars.game 0
@@ -38,6 +38,7 @@ kill @e[tag=liars.seat]
 
 # すべてのエンティティからゲーム関連タグを削除
 tag @e remove liars.participant
+tag @e remove liars.alive
 tag @e remove liars.card_selected
 tag @e remove liars.phase_loser
 tag @e remove liars.winner

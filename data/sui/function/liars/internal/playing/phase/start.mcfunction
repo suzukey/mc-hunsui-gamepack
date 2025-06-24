@@ -3,12 +3,12 @@
 
 # -- 勝利判定 ----------------------
 
-# アクティブなプレイヤー数をカウント
-execute store result score ACTIVE_PLAYERS liars.game if entity @a[tag=liars.participant,gamemode=!spectator]
+# 生存中のプレイヤー数をカウント
+execute store result score ALIVE_PLAYERS liars.game if entity @a[tag=liars.alive]
 
 # 1人以下の場合は勝利処理して終了
-execute if score ACTIVE_PLAYERS liars.game matches ..1 run function sui:liars/internal/playing/phase/declare_winner
-execute if score ACTIVE_PLAYERS liars.game matches ..1 run return 0
+execute if score ALIVE_PLAYERS liars.game matches ..1 run function sui:liars/internal/playing/phase/declare_winner
+execute if score ALIVE_PLAYERS liars.game matches ..1 run return 0
 
 # -- メインカード決定 ----------------------
 
