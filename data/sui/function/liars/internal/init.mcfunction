@@ -46,6 +46,10 @@ scoreboard objectives setdisplay list liars.wins
 scoreboard players set MIN_PLAYERS liars.const 2
 scoreboard players set MAX_PLAYERS liars.const 4
 
+# -- 初期値が必要なデータの設定 ------------------
+
+scoreboard players set PLAYING liars.game 0
+
 # -- Trigger システムの初期化 ----------------------
 
 function sui:liars/trigger/init
