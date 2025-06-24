@@ -19,11 +19,3 @@ execute as @a[tag=liars.participant,sort=random] run function sui:liars/internal
 # -- 座席への着席 ----------------------
 
 function sui:liars/internal/playing/seat/ride_seats
-
-# -- 通知 ----------------------
-
-# 各プレイヤーに座席番号を通知
-execute as @a[scores={liars.seat=1}] run tellraw @s [{"text":"■ ","color":"gray"},{"text":"あなたは座席1番に着席しました","color":"yellow"}]
-execute as @a[scores={liars.seat=2}] run tellraw @s [{"text":"■ ","color":"gray"},{"text":"あなたは座席2番に着席しました","color":"yellow"}]
-execute as @a[scores={liars.seat=3}] run tellraw @s [{"text":"■ ","color":"gray"},{"text":"あなたは座席3番に着席しました","color":"yellow"}]
-execute as @a[scores={liars.seat=4}] run tellraw @s [{"text":"■ ","color":"gray"},{"text":"あなたは座席4番に着席しました","color":"yellow"}]
