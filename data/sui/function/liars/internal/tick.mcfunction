@@ -6,11 +6,11 @@
 
 # -- ゲーム開始前のtick処理 ----------------------
 
-execute if score GAME_STARTED liars.configs matches 0 run function sui:liars/internal/matching/tick
+execute if score PLAYING liars.game matches 0 run function sui:liars/internal/matching/tick
 
 # -- ゲームごとのtick処理 ----------------------
 
-execute if score GAME_STARTED liars.configs matches 1 run function sui:liars/internal/playing/tick
+execute if score PLAYING liars.game matches 1 run function sui:liars/internal/playing/tick
 
 # -- Trigger システムのtick処理 ----------------------
 

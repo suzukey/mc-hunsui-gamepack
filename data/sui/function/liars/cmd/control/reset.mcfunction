@@ -1,20 +1,55 @@
 # ゲームリセット処理
 
-# -- リセット処理 ----------------
+# -- スコアボードの値をリセット ----------------------
 
-# 参加者のスコアボードのリセット
-scoreboard objectives remove liars.participants
-scoreboard objectives add liars.participants dummy "参加者"
-scoreboard objectives setdisplay sidebar liars.participants
+# ※ @a ではなく * を使用して、離脱したプレイヤーの値も確実にリセット
 
-# ゲーム関連設定の値をリセット
-scoreboard players set GAME_STARTED liars.configs 0
+# プレイヤー関連のスコアをリセット
+scoreboard players reset * liars.participants
+scoreboard players reset * liars.used_carrot_stick
+scoreboard players reset * liars.selected_card
+scoreboard players reset * liars.selected_count
+scoreboard players reset * liars.number_of_cards
+scoreboard players reset * liars.seat
+scoreboard players reset * liars.seat_number
+scoreboard players reset * liars.roulette
+scoreboard players reset * liars.trigger
+scoreboard players reset * liars.current_turn
 
-# 所持しているアイテム削除
-clear @a
+# グローバル変数をリセット（0に設定）
+scoreboard players set PLAYING liars.game 0
+scoreboard players set ALIVE_PLAYERS liars.game 0
+scoreboard players set CURRENT_PHASE liars.game 0
+scoreboard players set CURRENT_TURN liars.game 0
+scoreboard players set DECLARED_CARD liars.game 0
+scoreboard players set ROUND_NUMBER liars.game 0
+scoreboard players set TURN_COUNT liars.game 0
+scoreboard players set IS_PREV_LIE liars.game 0
 
-# 既存の座席エンティティを削除 (立ち上がることができるようにする)
+# -- アイテムをクリア ----------------------
+
+clear @a[tag=liars.participant]
+
+# -- エンティティを削除 ----------------------
+
 kill @e[tag=liars.seat]
+
+# -- タグをクリア ----------------------
+
+# すべてのエンティティからゲーム関連タグを削除
+tag @e remove liars.participant
+tag @e remove liars.alive
+tag @e remove liars.card_selected
+tag @e remove liars.phase_loser
+tag @e remove liars.winner
+tag @e remove liars.seat
+tag @e remove occupied
+
+# -- ゲームモードをリセット ----------------------
+
+# スペクテイターモードのプレイヤーをアドベンチャーモードに戻す
+gamemode adventure @a[gamemode=spectator]
+
 
 # 完了メッセージ
 tellraw @a [{"text":"■ ","color":"gray"},{"text":"ゲームがリセットされました","color":"green"}]
