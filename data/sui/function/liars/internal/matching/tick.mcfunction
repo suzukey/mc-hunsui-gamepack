@@ -3,7 +3,7 @@
 # -- 募集中の参加者数カウント ----------------------
 
 # スコアボードに設定
-scoreboard players reset *
+scoreboard players reset * liars.participants
 scoreboard players set @a[tag=liars.participant] liars.participants 1
 
 execute store result score #current_count liars.participants if entity @a[tag=liars.participant]
