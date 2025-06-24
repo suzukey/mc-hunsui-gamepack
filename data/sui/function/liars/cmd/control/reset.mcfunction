@@ -17,9 +17,8 @@ scoreboard players reset * liars.trigger
 scoreboard players reset * liars.current_turn
 
 # グローバル変数をリセット（0に設定）
-scoreboard players set GAME_STARTED liars.configs 0
-scoreboard players set ACTIVE_PLAYERS liars.configs 0
-
+scoreboard players set PLAYING liars.game 0
+scoreboard players set ACTIVE_PLAYERS liars.game 0
 scoreboard players set CURRENT_PHASE liars.game 0
 scoreboard players set CURRENT_TURN liars.game 0
 scoreboard players set DECLARED_CARD liars.game 0

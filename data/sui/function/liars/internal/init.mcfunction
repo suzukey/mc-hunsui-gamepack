@@ -4,11 +4,15 @@
 
 # -- スコアボード作成 ----------------------
 
-# ゲーム設定用スコアボード
-scoreboard objectives add liars.configs dummy "ゲーム基本設定"
+# 定数用スコアボード
+scoreboard objectives add liars.const dummy "定数"
+
+# ゲームスコア永続化スコアボード
+scoreboard objectives add liars.played dummy "プレイ回数"
+scoreboard objectives add liars.wins dummy "勝利回数"
+
+# ゲーム状態管理用スコアボード
 scoreboard objectives add liars.game dummy "ゲーム状態"
-scoreboard objectives add liars.participants dummy "参加者"
-scoreboard objectives add liars.score dummy "ゲームスコア"
 
 # アクション検知用スコアボード
 scoreboard objectives add liars.used_carrot_stick minecraft.used:minecraft.carrot_on_a_stick "人参棒使用"
@@ -29,16 +33,18 @@ scoreboard objectives add liars.trigger dummy "トリガー"
 # ターン管理用スコアボード
 scoreboard objectives add liars.current_turn dummy "現在のターン"
 
+# 参加者表示用スコアボード
+scoreboard objectives add liars.participants dummy "参加者"
+
 # -- 表示設定 ----------------------
 
 scoreboard objectives setdisplay sidebar liars.participants
-scoreboard objectives setdisplay list liars.score
+scoreboard objectives setdisplay list liars.wins
 
 # -- 永続的な設定値 ----------------------
 
-# これらの値は変更されない
-scoreboard players set MIN_PLAYERS liars.configs 2
-scoreboard players set MAX_PLAYERS liars.configs 4
+scoreboard players set MIN_PLAYERS liars.const 2
+scoreboard players set MAX_PLAYERS liars.const 4
 
 # -- Trigger システムの初期化 ----------------------
 

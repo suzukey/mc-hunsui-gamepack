@@ -1,8 +1,5 @@
 # 勝利者宣言処理
 
-# ゲーム終了フラグを設定
-scoreboard players set GAME_STARTED liars.configs 0
-
 # 勝利者を取得（最後の1人）
 execute as @a[tag=liars.participant,gamemode=!spectator] run tag @s add liars.winner
 
