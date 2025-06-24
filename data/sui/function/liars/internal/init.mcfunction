@@ -30,8 +30,6 @@ scoreboard objectives add liars.seat_number dummy "座席番号"
 scoreboard objectives add liars.roulette dummy "ルーレット"
 scoreboard objectives add liars.trigger dummy "トリガー"
 
-# ターン管理用スコアボード
-scoreboard objectives add liars.current_turn dummy "現在のターン"
 
 # 参加者表示用スコアボード
 scoreboard objectives add liars.participants dummy "参加者"
