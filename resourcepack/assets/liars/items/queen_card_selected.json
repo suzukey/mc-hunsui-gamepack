@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "liars:item/queen_card_selected"
+  },
+  "hand_animation_on_swap": false
+}

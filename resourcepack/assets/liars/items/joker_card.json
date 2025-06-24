@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "liars:item/joker_card"
+  },
+  "hand_animation_on_swap": false
+}

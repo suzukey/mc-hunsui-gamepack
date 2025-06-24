@@ -1,0 +1,6 @@
+{
+  "parent": "liars:item/card_base",
+  "textures": {
+    "front": "liars:item/ace_card"
+  }
+}
